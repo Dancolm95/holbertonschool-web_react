@@ -1,13 +1,15 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  mode: 'production',
-  entry: './js/dashboard_main.js',
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'public'),
-  },
+  
   mode: 'development',
+  entry: path.resolve(__dirname,'./js/dashboard_main.js'),
+  output: {
+    path: path.resolve(__dirname, 'public'),
+    filename: 'bundle.js',
+  },
   performance: {
     maxAssetSize: 200000,
   },
