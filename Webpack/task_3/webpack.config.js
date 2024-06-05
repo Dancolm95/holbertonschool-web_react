@@ -10,9 +10,25 @@ module.exports = {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
   },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
   performance: {
     maxAssetSize: 200000,
   },
+  devServer: {
+    contentBase: path.join(__dirname, './public'),
+    compress: true,
+    port: 8564,
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: 'public/index.html'
+    }),
+    new CleanWebpackPlugin()
+  ],
   module: {
     rules: [
         {
